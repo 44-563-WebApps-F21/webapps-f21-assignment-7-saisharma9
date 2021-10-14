@@ -52,6 +52,8 @@
         <button id="push" onclick="makeNewDiv()" class="btn btn-primary" style="color: violet;">Push value</button>
         <button id="pop" onclick="popItem()" class="btn btn-danger" style="color:khaki;">Pop</button>
         <button id="zap" onclick="zap()" class="btn btn-warning" style="color: yellow;">Zap values</button>
+        
+        <button id="unique" onclick="removeDups()" class="btn btn-success">Unique</button>
     </div>
 </body>
 <script>
@@ -79,6 +81,21 @@
                 if (element == value) {
                     console.log(stackItems[i])
                     stackItems[i].remove();
+                    i--;
+                }
+            }
+        }
+    }
+    function removeDups() {
+        stackItems = document.getElementsByClassName('stack');
+        for (let i = 0; i < stackItems.length; i++) {
+            element = stackItems[i].innerHTML;
+            for (let j = i + 1; j < stackItems.length; j++) {
+                element1 = stackItems[j].innerHTML;
+                if (element == element1) {
+                    console.log(stackItems[j])
+                    stackItems[j].remove();
+                    j--;
                     i--;
                 }
             }

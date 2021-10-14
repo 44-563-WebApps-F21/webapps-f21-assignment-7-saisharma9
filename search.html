@@ -68,13 +68,16 @@
       <script>
         let ids = ["image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8", "image9", "image10", "image11", "image12", "image13", "image14", "image15", "image16", "image17", "image18", "image19", "image20", "image21", "image22", "image23", "image24"]
             tirecount = 0
-            animalLocation = 13
+            animalLocation = Math.round(Math.random() * (23 - 0) + 0);
             clicks = 1
             function check(position) 
             {
                 id = ids[position]
                 if (position == animalLocation) {
                     document.getElementById(id).src = "cat.jpg"
+                }
+                else{
+                  document.getElementById(id).src = "hole.jpg"
                 }
                 out = document.getElementById("tries")
                 out.innerHTML = "Number of tries is " + clicks
