@@ -18,11 +18,37 @@
     <button type="button" class="btn btn-primary" onclick="startTime()">Start Timer</button>
     <button type="button" class="btn btn-primary" onclick="recordReact()">React Now</button>
     <script>
-         myTime = undefined;
-         function recordReact() 
-         {
-            myTime = Date.now()
-            console.log("React Time " + myTime)
-        }
+         
+         var myTime = undefined;
+
+function recordReact()
+{
+  myTime = Date.now();
+  console.log(myTime);
+}
+
+function startTime()
+  {
+    let counter = Math.round(Math.random()*(10 - 2) + 2)
+
+    for(let i = 0; i < counter; i++)
+    {
+      setTimeout(function() {
+        document.getElementById('countdown').innerHTML = "Count " + i;
+      },(((counter-1)-i)*1000))
+    }
+    setTimeout(function() {
+      if(myTime==undefined)
+      {
+        document.getElementById('target').innerHTML = "Too slow";
+      }
+      else
+      {
+        let buttonTime = Date.now();
+        buttonTime = buttonTime-myTime;
+        document.getElementById('target').innerHTML = "Time was "+buttonTime;
+      }
+    },((counter-1)*1000))
+  }
     </script>
 </body>
